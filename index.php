@@ -57,7 +57,7 @@
                                 echo "</thead>";
                                 echo "<tbody>";
                                 while($row = pg_fetch_assoc($result)){
-                                    print_r($result);
+                                    print_r($row);
                                     echo "<tr>";
                                         echo "<td>" . $row['_id'] . "</td>";
                                         echo "<td>" . $row['prodName'] . "</td>";
