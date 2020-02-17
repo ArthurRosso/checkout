@@ -13,7 +13,7 @@ if(isset($_GET["_id"]) && !empty(trim($_GET["_id"]))){
     // Prepare a select statement
     $sql = "SELECT * FROM PRODUCTS WHERE _id = ?";
     
-    if($stmt = pg_prepare($link, $sql)){
+    if($stmt = pg_prepare($link, "",  $sql)){
         // Bind variables to the prepared statement as parameters
         pg_stmt_bind_param($stmt, "i", $_GET["_id"]);
         
