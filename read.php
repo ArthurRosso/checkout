@@ -13,10 +13,10 @@ if(isset($_GET["_id"]) && !empty(trim($_GET["_id"]))){
     // Prepare a select statement
     $sql = "SELECT * FROM PRODUCTS WHERE _id = $_GET["_id"]";
 
-    $result = pg_query($link, $sql)
+    $result = pg_query($link, $sql);
     
     if(pg_num_rows($result) == 1){
-        $row = pg_fetch_assoc($result)
+        $row = pg_fetch_assoc($result);
                 
         // Retrieve individual field value
         $prodname = $row['prodname'];
