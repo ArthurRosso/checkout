@@ -18,7 +18,7 @@ if(isset($_GET["_id"]) && !empty(trim($_GET["_id"]))){
             if(pg_num_rows($result) == 1){
                 /* Fetch result row as an associative array. Since the result set
                 contains only one row, we don't need to use while loop */
-                $row = pg_fetch_array($result, MYSQLI_ASSOC);
+                $row = pg_fetch_array($result, PGSQL_ASSOC);
                 
                 // Retrieve individual field value
                 $prodName = $row['prodName'];

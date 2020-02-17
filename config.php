@@ -8,4 +8,12 @@ $link = pg_connect($con_string);
 if($link === false){
     echo ("Could not connect")
 }
+
+$sql = "SELECT * FROM PRODUCTS";
+if($link->query($sql)){
+
+} else {
+    $sql = "CREATE TABLE `checkout`.`PRODUCTS` ( `_id` INT(32) NOT NULL AUTO_INCREMENT , `prodName` VARCHAR(32) NOT NULL , `prodBrand` VARCHAR(32) NOT NULL , `prodDescription` VARCHAR(32) NOT NULL , `prodProvider` VARCHAR(32) NOT NULL , `authorName` VARCHAR(32) NOT NULL , `prodAmount` INT(32) NOT NULL , `prodUnit` VARCHAR(32) NOT NULL , `prodPrice` VARCHAR(32) NOT NULL , `prodResource` VARCHAR(32) NOT NULL , PRIMARY KEY (`_id`))"
+}
+
 ?>

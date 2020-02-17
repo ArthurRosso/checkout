@@ -14,7 +14,7 @@ $prodResource = $_POST['prodResource'];
 
 $sql = "INSERT INTO PRODUCTS (prodName, prodBrand, prodDescription, prodProvider, authorName, prodAmount, prodUnit, prodPrice, prodResource) VALUES ('$prodName', '$prodBrand', '$prodDescription', '$prodProvider', '$authorName', '$prodAmount', '$prodUnit', '$prodPrice', '$prodResource');";
 
-if (pg_query($link, $sql)) {
+if ($link->query($sql)) {
     echo"<script language='javascript' type='text/javascript'>alert('Product successfully registered!');window.location.href='index.php'</script>";
 } else {
   echo"<script language='javascript' type='text/javascript'>alert('This product could not be registered.');window.location.href='index.php'</script>";

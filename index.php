@@ -31,11 +31,11 @@
                     </div>
                     <?php
                     // Include config file
-                    require_once "config.php";
+                    require_once ("config.php");
                     
                     // Attempt select query execution
                     $sql = "SELECT * FROM PRODUCTS";
-                    if($result = pg_query($link, $sql)){
+                    if($link->query($sql)){
                         if(pg_num_rows($result) > 0){
                             echo "<table class='table table-bordered table-striped'>";
                                 echo "<thead>";
@@ -63,16 +63,16 @@
                                 echo "</tbody>";                            
                             echo "</table>";
                             // Free result set
-                            mysqli_free_result($result);
+                            pg_free_result($result);
                         } else{
                             echo "<p class='lead'><em>No records were found.</em></p>";
                         }
                     } else{
-                        echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+                        echo "ERROR: Could not able to execute $sql. ";
                     }
  
                     // Close connection
-                    mysqli_close($link);
+                    pg_close($link);
                     ?>
                 </div>
             </div>        
