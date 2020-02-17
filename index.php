@@ -56,7 +56,7 @@
                                     echo "</tr>";
                                 echo "</thead>";
                                 echo "<tbody>";
-                                while($row = pg_fetch_array($result)){
+                                while($row = pg_fetch_assoc($result)){
                                     print_r($result);
                                     echo "<tr>";
                                         echo "<td>" . $row['_id'] . "</td>";
