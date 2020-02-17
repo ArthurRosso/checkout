@@ -1,19 +1,26 @@
 <?php
-# This function reads your DATABASE_URL config var and returns a connection
-# string suitable for pg_connect. Put this in your app.
-function pg_connection_string_from_database_url() {
-    extract(parse_url("postgres://gjlnaecixevmhz:e1c132e283ab992399c1ed7af356c64cb89f6092ad3dc6bd9b57cb66c6c44af9@ec2-50-17-178-87.compute-1.amazonaws.com:5432/d2tp2kgcaicg2g"));
-    return "user=$user password=$pass host=$host dbname=" . substr($path, 1); # <- you may want to add sslmode=require there too
-}
-  
-# Here we establish the connection. Yes, that's all.
-$link = pg_connect(pg_connection_string_from_database_url());
+
+// Error handling
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+/* Attempt to connect to PostgreSQL database */
+$host = ec2-50-17-178-87.compute-1.amazonaws.com;
+$port = 5432;
+$dbname = d2tp2kgcaicg2g;
+$user = gjlnaecixevmhz;
+$passwd = e1c132e283ab992399c1ed7af356c64cb89f6092ad3dc6bd9b57cb66c6c44af9;
+$con_string = "host=$host port=$port dbname=$dbname user=$user password=$passwd sslmode=require";
+$link = pg_connect($con_string);
+ 
 // Check connection
 if($link === false){
     echo ("Could not connect")
 }
 
-if($res = pg_query($link, "SELECT * FROM PRODUCTS")){
+$select = "SELECT * FROM PRODUCTS";
+if($res = pg_query($link, $sql)){
 
 } else {
     $select = "CREATE TABLE PRODUCTS ( 
