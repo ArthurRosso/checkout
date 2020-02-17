@@ -75,7 +75,7 @@ if(isset($_GET["_id"]) && !empty(trim($_GET["_id"]))){
             <div class='form-group'>
                 <label>Resource</label>
                 <p class='form-control-static'>" . $row['prodresource'] .  "</p>
-            </div>"
+            </div>";
     } else{
         echo"<script language='javascript' type='text/javascript'>alert('URL doesn\'t contain valid id parameter. Redirect to error page');window.location.href='error.html'</script>";
         exit();
