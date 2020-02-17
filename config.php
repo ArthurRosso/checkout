@@ -14,23 +14,18 @@ if($link === false){
     echo ("Could not connect");
 }
 
-$select = "SELECT * FROM PRODUCTS";
-if($res = pg_query($link, $sql)){
-
-} else {
-    $select = "CREATE TABLE PRODUCTS ( 
-        _id SERIAL PRIMARY KEY, 
-        prodName VARCHAR (50) NOT NULL, 
-        prodBrand VARCHAR (32) NOT NULL, 
-        prodDescription VARCHAR (32) NOT NULL, 
-        prodProvider VARCHAR (32) NOT NULL, 
-        authorName VARCHAR (32) NOT NULL, 
-        prodAmount INTEGER (32) NOT NULL, 
-        prodUnit VARCHAR (32) NOT NULL, 
-        prodPrice INTEGER (32) NOT NULL, 
-        prodResource VARCHAR (32) NOT NULL 
-    )"
-    pg_query($link, $select);
-}
+$select = "CREATE TABLE IF NOT EXISTS PRODUCTS ( 
+    _id SERIAL PRIMARY KEY, 
+    prodName VARCHAR (50) NOT NULL, 
+    prodBrand VARCHAR (32) NOT NULL, 
+    prodDescription VARCHAR (32) NOT NULL, 
+    prodProvider VARCHAR (32) NOT NULL, 
+    authorName VARCHAR (32) NOT NULL, 
+    prodAmount INTEGER (32) NOT NULL, 
+    prodUnit VARCHAR (32) NOT NULL, 
+    prodPrice INTEGER (32) NOT NULL, 
+    prodResource VARCHAR (32) NOT NULL 
+)"
+pg_query($link, $select);
 
 ?>
