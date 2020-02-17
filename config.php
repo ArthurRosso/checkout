@@ -1,11 +1,11 @@
 <?php
 
 /* Attempt to connect to PostgreSQL database */
-$host = "ec2-50-17-178-87.compute-1.amazonaws.com";
+$host = "ec2-184-72-236-57.compute-1.amazonaws.com";
 $port = "5432";
-$dbname = "d2tp2kgcaicg2g";
-$user = "gjlnaecixevmhz";
-$passwd = "e1c132e283ab992399c1ed7af356c64cb89f6092ad3dc6bd9b57cb66c6c44af9";
+$dbname = "d1akuuj1dkvst3";
+$user = "essqjadckawcxv";
+$passwd = "228a4c2c945b06175a7ef73db1ae99737dc53aac98a383571b58794c0a4c56ae";
 $con_string = "host=$host port=$port dbname=$dbname user=$user password=$passwd sslmode=require";
 $link = pg_connect($con_string);
  
