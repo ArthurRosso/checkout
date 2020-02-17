@@ -30,6 +30,14 @@
                         <a href="create.html" class="btn btn-success pull-right">Add New Product</a>
                     </div>
                     <?php
+
+                    
+                    // Error handling
+                    ini_set('display_errors', 1);
+                    ini_set('display_startup_errors', 1);
+                    error_reporting(E_ALL);
+
+
                     // Include config file
                     require_once ("config.php");
                     
