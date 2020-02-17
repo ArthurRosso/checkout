@@ -12,9 +12,9 @@ $prodUnit = $_POST['prodUnit'];
 $prodPrice = $_POST['prodPrice'];
 $prodResource = $_POST['prodResource'];
 
-$sql = "INSERT INTO PRODUCT (prodName, prodBrand, prodDescription, prodProvider, authorName, prodAmount, prodUnit, prodPrice, prodResource) VALUES ('$prodName', '$prodBrand', '$prodDescription', '$prodProvider', '$authorName', '$prodAmount', '$prodUnit', '$prodPrice', '$prodResource');";
+$sql = "INSERT INTO PRODUCTS (prodName, prodBrand, prodDescription, prodProvider, authorName, prodAmount, prodUnit, prodPrice, prodResource) VALUES ('$prodName', '$prodBrand', '$prodDescription', '$prodProvider', '$authorName', '$prodAmount', '$prodUnit', '$prodPrice', '$prodResource');";
 
-if ($link->query($sql)) {
+if (pg_query($link, $sql)) {
     echo"<script language='javascript' type='text/javascript'>alert('Product successfully registered!');window.location.href='index.php'</script>";
 } else {
   echo"<script language='javascript' type='text/javascript'>alert('This product could not be registered.');window.location.href='index.php'</script>";

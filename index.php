@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="icon" href="./static/img/comp.ico">
-    <title>Checkout GCOMP - Create Record</title>
+    <title>Checkout GCOMP</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
@@ -34,9 +34,9 @@
                     require_once "config.php";
                     
                     // Attempt select query execution
-                    $sql = "SELECT * FROM product";
-                    if($result = mysqli_query($link, $sql)){
-                        if(mysqli_num_rows($result) > 0){
+                    $sql = "SELECT * FROM PRODUCTS";
+                    if($result = pg_query($link, $sql)){
+                        if(pg_num_rows($result) > 0){
                             echo "<table class='table table-bordered table-striped'>";
                                 echo "<thead>";
                                     echo "<tr>";
@@ -48,7 +48,7 @@
                                     echo "</tr>";
                                 echo "</thead>";
                                 echo "<tbody>";
-                                while($row = mysqli_fetch_array($result)){
+                                while($row = pg_fetch_array($result)){
                                     echo "<tr>";
                                         echo "<td>" . $row['_id'] . "</td>";
                                         echo "<td>" . $row['prodName'] . "</td>";
@@ -56,7 +56,6 @@
                                         echo "<td>" . $row['prodPrice'] . "</td>";
                                         echo "<td>";
                                             echo "<a href='read.php?_id=". $row['_id'] ."' title='View Record' data-toggle='tooltip'><span class='glyphicon glyphicon-eye-open'></span></a>";
-                                            echo "<a href='update.php?_id=". $row['_id'] ."' title='Update Record' data-toggle='tooltip'><span class='glyphicon glyphicon-pencil'></span></a>";
                                             echo "<a href='delete.php?_id=". $row['_id'] ."' title='Delete Record' data-toggle='tooltip'><span class='glyphicon glyphicon-trash'></span></a>";
                                         echo "</td>";
                                     echo "</tr>";

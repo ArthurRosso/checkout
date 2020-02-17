@@ -5,20 +5,20 @@ if(isset($_GET["_id"]) && !empty(trim($_GET["_id"]))){
     require_once "config.php";
     
     // Prepare a select statement
-    $sql = "SELECT * FROM product WHERE _id = ?";
+    $sql = "SELECT * FROM PRODUCTS WHERE _id = ?";
     
-    if($stmt = mysqli_prepare($link, $sql)){
+    if($stmt = pg_prepare($link, $sql)){
         // Bind variables to the prepared statement as parameters
-        mysqli_stmt_bind_param($stmt, "i", $_GET["_id"]);
+        pg_stmt_bind_param($stmt, "i", $_GET["_id"]);
         
         // Attempt to execute the prepared statement
-        if(mysqli_stmt_execute($stmt)){
-            $result = mysqli_stmt_get_result($stmt);
+        if(pg_stmt_execute($stmt)){
+            $result = pg_stmt_get_result($stmt);
     
-            if(mysqli_num_rows($result) == 1){
+            if(pg_num_rows($result) == 1){
                 /* Fetch result row as an associative array. Since the result set
                 contains only one row, we don't need to use while loop */
-                $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+                $row = pg_fetch_array($result, MYSQLI_ASSOC);
                 
                 // Retrieve individual field value
                 $prodName = $row['prodName'];
@@ -31,7 +31,7 @@ if(isset($_GET["_id"]) && !empty(trim($_GET["_id"]))){
                 $prodPrice = $row['prodPrice'];
                 $prodResource = $row['prodResource'];
             } else{
-                echo"<script language='javascript' type='text/javascript'>alert('URL doesn\'t contain valid id parameter. Redirect to error page');window.location.href='error.php'</script>";
+                echo"<script language='javascript' type='text/javascript'>alert('URL doesn\'t contain valid id parameter. Redirect to error page');window.location.href='error.html'</script>";
                 exit();
             }
             
@@ -41,12 +41,12 @@ if(isset($_GET["_id"]) && !empty(trim($_GET["_id"]))){
     }
      
     // Close statement
-    mysqli_stmt_close($stmt);
+    pg_stmt_close($stmt);
     
     // Close connection
-    mysqli_close($link);
+    pg_close($link);
 } else{
-    echo"<script language='javascript' type='text/javascript'>alert('URL doesn\'t contain valid id parameter. Redirect to error page');window.location.href='error.php'</script>";
+    echo"<script language='javascript' type='text/javascript'>alert('URL doesn\'t contain valid id parameter. Redirect to error page');window.location.href='error.html'</script>";
     exit();
 }
 ?>
@@ -54,7 +54,8 @@ if(isset($_GET["_id"]) && !empty(trim($_GET["_id"]))){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>View Record</title>
+    <link rel="icon" href="./static/img/comp.ico">
+    <title>Checkout GCOMP - View Record</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <style type="text/css">
         .wrapper{
