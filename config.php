@@ -11,7 +11,7 @@ $link = pg_connect($con_string);
  
 // Check connection
 if($link === false){
-    echo ("Could not connect")
+    echo ("Could not connect");
 }
 
 $select = "SELECT * FROM PRODUCTS";
