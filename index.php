@@ -57,6 +57,7 @@
                                 echo "</thead>";
                                 echo "<tbody>";
                                 while($row = pg_fetch_array($result)){
+                                    print_r($result);
                                     echo "<tr>";
                                         echo "<td>" . $row['_id'] . "</td>";
                                         echo "<td>" . $row['prodName'] . "</td>";
