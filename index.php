@@ -35,7 +35,7 @@
                     
                     // Attempt select query execution
                     $sql = "SELECT * FROM PRODUCTS";
-                    if(pg_query($link, $sql)){
+                    if($result = pg_query($link, $sql)){
                         if(pg_num_rows($result) > 0){
                             echo "<table class='table table-bordered table-striped'>";
                                 echo "<thead>";
