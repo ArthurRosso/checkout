@@ -1,5 +1,10 @@
 <?php
 
+// Error handling
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 /* Attempt to connect to PostgreSQL database */
 $host = "ec2-184-72-236-57.compute-1.amazonaws.com";
 $port = "5432";
