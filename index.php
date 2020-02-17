@@ -41,7 +41,7 @@
                     // Include config file
                     require_once ("config.php");
                     
-                    // Attempt select query execution
+
                     $sql = "SELECT * FROM PRODUCTS";
                     if($result = pg_query($link, $sql)){
                         if(pg_num_rows($result) > 0){
@@ -57,6 +57,7 @@
                                 echo "</thead>";
                                 echo "<tbody>";
                                 while($row = pg_fetch_array($result)){
+                                    print_r($result)
                                     echo "<tr>";
                                         echo "<td>" . $row['_id'] . "</td>";
                                         echo "<td>" . $row['prodName'] . "</td>";
@@ -70,7 +71,7 @@
                                 }
                                 echo "</tbody>";                            
                             echo "</table>";
-                            // Free result set
+
                             pg_free_result($result);
                         } else{
                             echo "<p class='lead'><em>No records were found.</em></p>";

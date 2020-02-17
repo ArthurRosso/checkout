@@ -26,6 +26,6 @@ $select = "CREATE TABLE IF NOT EXISTS PRODUCTS (
     prodPrice NUMERIC (8, 2) NOT NULL, 
     prodResource VARCHAR (32) NOT NULL 
 )";
-$res = pg_query($link, $select);
+pg_query($link, $select);
 
 ?>
