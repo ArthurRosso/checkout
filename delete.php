@@ -5,7 +5,7 @@ require_once ("config.php");
 $_id = $_GET["_id"];
 $sql = "DELETE FROM PRODUCTS WHERE _id = '$_id'";
     
-if ($link->query($sql)) {
+if (pg_query($link, $sql)) {
     echo"<script language='javascript' type='text/javascript'>alert('Product successfully deleted!');window.location.href='index.php'</script>";
 } else {
     echo"<script language='javascript' type='text/javascript'>alert('This product could not be deleted.');window.location.href='index.php'</script>";
