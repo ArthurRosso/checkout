@@ -1,8 +1,14 @@
 <?php
+
+// Error handling
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 // Check existence of id parameter before processing further
 if(isset($_GET["_id"]) && !empty(trim($_GET["_id"]))){
     // Include config file
-    require_once "config.php";
+    require_once ("config.php");
     
     // Prepare a select statement
     $sql = "SELECT * FROM PRODUCTS WHERE _id = ?";
