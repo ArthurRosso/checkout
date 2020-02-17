@@ -11,50 +11,35 @@ if(isset($_GET["_id"]) && !empty(trim($_GET["_id"]))){
     require_once ("config.php");
     
     // Prepare a select statement
-    $sql = "SELECT * FROM PRODUCTS WHERE _id = ?";
+    $sql = "SELECT * FROM PRODUCTS WHERE _id = $_GET["_id"]";
+
+    $result = pg_query($link, $sql)
     
-    if($stmt = pg_prepare($link, "",  $sql)){
-        // Bind variables to the prepared statement as parameters
-        pg_stmt_bind_param($stmt, "i", $_GET["_id"]);
-        
-        // Attempt to execute the prepared statement
-        if(pg_stmt_execute($stmt)){
-            $result = pg_stmt_get_result($stmt);
-    
-            if(pg_num_rows($result) == 1){
-                /* Fetch result row as an associative array. Since the result set
-                contains only one row, we don't need to use while loop */
-                $row = pg_fetch_array($result, PGSQL_ASSOC);
+    if(pg_num_rows($result) == 1){
+        $row = pg_fetch_assoc($result)
                 
-                // Retrieve individual field value
-                $prodname = $row['prodname'];
-                $prodbrand = $row['prodbrand'];
-                $proddescription = $row['proddescription'];
-                $prodprovider = $row['prodprovider'];
-                $authorname = $row['authorname'];
-                $prodamount = $row['prodamount'];
-                $produnit = $row['produnit'];
-                $prodprice = $row['prodprice'];
-                $prodresource = $row['prodresource'];
-            } else{
-                echo"<script language='javascript' type='text/javascript'>alert('URL doesn\'t contain valid id parameter. Redirect to error page');window.location.href='error.html'</script>";
-                exit();
-            }
-            
-        } else{
-            echo"<script language='javascript' type='text/javascript'>alert('Oops! Something went wrong. Please try again later.');window.location.href='index.php'</script>";
-        }
+        // Retrieve individual field value
+        $prodname = $row['prodname'];
+        $prodbrand = $row['prodbrand'];
+        $proddescription = $row['proddescription'];
+        $prodprovider = $row['prodprovider'];
+        $authorname = $row['authorname'];
+        $prodamount = $row['prodamount'];
+        $produnit = $row['produnit'];
+        $prodprice = $row['prodprice'];
+        $prodresource = $row['prodresource'];
+    } else{
+        echo"<script language='javascript' type='text/javascript'>alert('URL doesn\'t contain valid id parameter. Redirect to error page');window.location.href='error.html'</script>";
+        exit();
     }
-     
-    // Close statement
-    pg_stmt_close($stmt);
-    
-    // Close connection
-    pg_close($link);
+            
 } else{
-    echo"<script language='javascript' type='text/javascript'>alert('URL doesn\'t contain valid id parameter. Redirect to error page');window.location.href='error.html'</script>";
-    exit();
+    echo"<script language='javascript' type='text/javascript'>alert('Oops! Something went wrong. Please try again later.');window.location.href='index.php'</script>";
 }
+    
+// Close connection
+pg_close($link);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
