@@ -40,42 +40,42 @@ if(isset($_GET["_id"]) && !empty(trim($_GET["_id"]))){
     if(pg_num_rows($result) == 1){
         $row = pg_fetch_assoc($result);
                 
-        echo '<div class="form-group">
+        echo "<div class='form-group'>
                 <label>Product Name</label>
-                <p class="form-control-static"><?php echo $row["prodname"]; ?></p>
+                <p class='form-control-static'>". $row['prodname'] . "</p>
             </div>
-            <div class="form-group">
-                        <label>Product Brand</label>
-                        <p class="form-control-static"><?php echo $row["prodbrand"]; ?></p>
-                    </div>
-                    <div class="form-group">
-                        <label>Product Description</label>
-                        <p class="form-control-static"><?php echo $row["proddescription"]; ?></p>
-                    </div>
-                    <div class="form-group">
-                        <label>Product Provider</label>
-                        <p class="form-control-static"><?php echo $row["prodprovider"]; ?></p>
-                    </div>
-                    <div class="form-group">
-                        <label>Author Name</label>
-                        <p class="form-control-static"><?php echo $row["authorname"]; ?></p>
-                    </div>
-                    <div class="form-group">
-                        <label>Amount</label>
-                        <p class="form-control-static"><?php echo $row["prodamount"]; ?></p>
-                    </div>
-                    <div class="form-group">
-                        <label>Unit of Measurement</label>
-                        <p class="form-control-static"><?php echo $row["produnit"]; ?></p>
-                    </div>
-                    <div class="form-group">
-                        <label>Price</label>
-                        <p class="form-control-static"><?php echo $row["prodprice"]; ?></p>
-                    </div>
-                    <div class="form-group">
-                        <label>Resource</label>
-                        <p class="form-control-static"><?php echo $row["prodresource"]; ?></p>
-                    </div>'
+            <div class='form-group'>
+                <label>Product Brand</label>
+                <p class='form-control-static'>" . $row['prodbrand'] . "</p>
+            </div>
+            <div class='form-group'>
+                <label>Product Description</label>
+                <p class='form-control-static'>" . $row['proddescription'] .  "</p>
+            </div>
+            <div class='form-group'>
+                <label>Product Provider</label>
+                <p class='form-control-static'>" . $row['prodprovider'] .  "</p>
+            </div>
+            <div class='form-group'>
+                <label>Author Name</label>
+                <p class='form-control-static'>" . $row['authorname'] .  "</p>
+            </div>
+            <div class='form-group'>
+                <label>Amount</label>
+                <p class='form-control-static'>" . $row['prodamount'] .  "</p>
+            </div>
+            <div class='form-group'>
+                <label>Unit of Measurement</label>
+                <p class='form-control-static'>" . $row['produnit'] .  "</p>
+            </div>
+            <div class='form-group'>
+                <label>Price</label>
+                <p class='form-control-static'>" . $row['prodprice'] .  "</p>
+            </div>
+            <div class='form-group'>
+                <label>Resource</label>
+                <p class='form-control-static'>" . $row['prodresource'] .  "</p>
+            </div>"
     } else{
         echo"<script language='javascript' type='text/javascript'>alert('URL doesn\'t contain valid id parameter. Redirect to error page');window.location.href='error.html'</script>";
         exit();
