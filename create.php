@@ -9,17 +9,17 @@ error_reporting(E_ALL);
 
 require_once("config.php");
 
-$prodName = $_POST['prodName'];
-$prodBrand = $_POST['prodBrand'];
-$prodDescription = $_POST['prodDescription'];
-$prodProvider = $_POST['prodProvider'];
-$authorName = $_POST['authorName'];
-$prodAmount = $_POST['prodAmount'];
-$prodUnit = $_POST['prodUnit'];
-$prodPrice = $_POST['prodPrice'];
-$prodResource = $_POST['prodResource'];
+$prodname = $_POST['prodname'];
+$prodbrand = $_POST['prodbrand'];
+$proddescription = $_POST['proddescription'];
+$prodprovider = $_POST['prodprovider'];
+$authorname = $_POST['authorname'];
+$prodamount = $_POST['prodamount'];
+$produnit = $_POST['produnit'];
+$prodprice = $_POST['prodprice'];
+$prodresource = $_POST['prodresource'];
 
-$sql = "INSERT INTO PRODUCTS (prodName, prodBrand, prodDescription, prodProvider, authorName, prodAmount, prodUnit, prodPrice, prodResource) VALUES ('$prodName', '$prodBrand', '$prodDescription', '$prodProvider', '$authorName', '$prodAmount', '$prodUnit', '$prodPrice', '$prodResource');";
+$sql = "INSERT INTO PRODUCTS (prodname, prodbrand, proddescription, prodprovider, authorname, prodamount, produnit, prodprice, prodresource) VALUES ('$prodname', '$prodbrand', '$proddescription', '$prodprovider', '$authorname', '$prodamount', '$produnit', '$prodprice', '$prodresource');";
 
 if (pg_query($link, $sql)) {
     echo"<script language='javascript' type='text/javascript'>alert('Product successfully registered!');window.location.href='index.php'</script>";

@@ -16,15 +16,15 @@ if($link === false){
 
 $select = "CREATE TABLE IF NOT EXISTS PRODUCTS ( 
     _id SERIAL PRIMARY KEY, 
-    prodName VARCHAR (50) NOT NULL, 
-    prodBrand VARCHAR (32) NOT NULL, 
-    prodDescription VARCHAR (32) NOT NULL, 
-    prodProvider VARCHAR (32) NOT NULL, 
-    authorName VARCHAR (32) NOT NULL, 
-    prodAmount INTEGER NOT NULL, 
-    prodUnit VARCHAR (32) NOT NULL, 
-    prodPrice NUMERIC (8, 2) NOT NULL, 
-    prodResource VARCHAR (32) NOT NULL 
+    prodname VARCHAR (50) NOT NULL, 
+    prodbrand VARCHAR (32) NOT NULL, 
+    proddescription VARCHAR (32) NOT NULL, 
+    prodprovider VARCHAR (32) NOT NULL, 
+    authorname VARCHAR (32) NOT NULL, 
+    prodamount INTEGER NOT NULL, 
+    produnit VARCHAR (32) NOT NULL, 
+    prodprice NUMERIC (8, 2) NOT NULL, 
+    prodresource VARCHAR (32) NOT NULL 
 )";
 pg_query($link, $select);
 

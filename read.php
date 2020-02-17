@@ -21,15 +21,15 @@ if(isset($_GET["_id"]) && !empty(trim($_GET["_id"]))){
                 $row = pg_fetch_array($result, PGSQL_ASSOC);
                 
                 // Retrieve individual field value
-                $prodName = $row['prodName'];
-                $prodBrand = $row['prodBrand'];
-                $prodDescription = $row['prodDescription'];
-                $prodProvider = $row['prodProvider'];
-                $authorName = $row['authorName'];
-                $prodAmount = $row['prodAmount'];
-                $prodUnit = $row['prodUnit'];
-                $prodPrice = $row['prodPrice'];
-                $prodResource = $row['prodResource'];
+                $prodname = $row['prodname'];
+                $prodbrand = $row['prodbrand'];
+                $proddescription = $row['proddescription'];
+                $prodprovider = $row['prodprovider'];
+                $authorname = $row['authorname'];
+                $prodamount = $row['prodamount'];
+                $produnit = $row['produnit'];
+                $prodprice = $row['prodprice'];
+                $prodresource = $row['prodresource'];
             } else{
                 echo"<script language='javascript' type='text/javascript'>alert('URL doesn\'t contain valid id parameter. Redirect to error page');window.location.href='error.html'</script>";
                 exit();
@@ -74,39 +74,39 @@ if(isset($_GET["_id"]) && !empty(trim($_GET["_id"]))){
                     </div>
                     <div class="form-group">
                         <label>Product Name</label>
-                        <p class="form-control-static"><?php echo $row["prodName"]; ?></p>
+                        <p class="form-control-static"><?php echo $row["prodname"]; ?></p>
                     </div>
                     <div class="form-group">
                         <label>Product Brand</label>
-                        <p class="form-control-static"><?php echo $row["prodBrand"]; ?></p>
+                        <p class="form-control-static"><?php echo $row["prodbrand"]; ?></p>
                     </div>
                     <div class="form-group">
                         <label>Product Description</label>
-                        <p class="form-control-static"><?php echo $row["prodDescription"]; ?></p>
+                        <p class="form-control-static"><?php echo $row["proddescription"]; ?></p>
                     </div>
                     <div class="form-group">
                         <label>Product Provider</label>
-                        <p class="form-control-static"><?php echo $row["prodProvider"]; ?></p>
+                        <p class="form-control-static"><?php echo $row["prodprovider"]; ?></p>
                     </div>
                     <div class="form-group">
                         <label>Author Name</label>
-                        <p class="form-control-static"><?php echo $row["authorName"]; ?></p>
+                        <p class="form-control-static"><?php echo $row["authorname"]; ?></p>
                     </div>
                     <div class="form-group">
                         <label>Amount</label>
-                        <p class="form-control-static"><?php echo $row["prodAmount"]; ?></p>
+                        <p class="form-control-static"><?php echo $row["prodamount"]; ?></p>
                     </div>
                     <div class="form-group">
                         <label>Unit of Measurement</label>
-                        <p class="form-control-static"><?php echo $row["prodUnit"]; ?></p>
+                        <p class="form-control-static"><?php echo $row["produnit"]; ?></p>
                     </div>
                     <div class="form-group">
                         <label>Price</label>
-                        <p class="form-control-static"><?php echo $row["prodPrice"]; ?></p>
+                        <p class="form-control-static"><?php echo $row["prodprice"]; ?></p>
                     </div>
                     <div class="form-group">
                         <label>Resource</label>
-                        <p class="form-control-static"><?php echo $row["prodResource"]; ?></p>
+                        <p class="form-control-static"><?php echo $row["prodresource"]; ?></p>
                     </div>
                     <p><a href="index.php" class="btn btn-primary">Back</a></p>
                 </div>

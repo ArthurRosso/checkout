@@ -57,12 +57,11 @@
                                 echo "</thead>";
                                 echo "<tbody>";
                                 while($row = pg_fetch_assoc($result)){
-                                    print_r($row);
                                     echo "<tr>";
                                         echo "<td>" . $row['_id'] . "</td>";
-                                        echo "<td>" . $row['prodName'] . "</td>";
-                                        echo "<td>" . $row['prodDescription'] . "</td>";
-                                        echo "<td>" . $row['prodPrice'] . "</td>";
+                                        echo "<td>" . $row['prodname'] . "</td>";
+                                        echo "<td>" . $row['proddescription'] . "</td>";
+                                        echo "<td>" . $row['prodprice'] . "</td>";
                                         echo "<td>";
                                             echo "<a href='read.php?_id=". $row['_id'] ."' title='View Record' data-toggle='tooltip'><span class='glyphicon glyphicon-eye-open'></span></a>";
                                             echo "<a href='delete.php?_id=". $row['_id'] ."' title='Delete Record' data-toggle='tooltip'><span class='glyphicon glyphicon-trash'></span></a>";
