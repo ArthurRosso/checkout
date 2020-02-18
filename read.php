@@ -1,116 +1,87 @@
-<?php
-// Check existence of id parameter before processing further
-if(isset($_GET["_id"]) && !empty(trim($_GET["_id"]))){
-    // Include config file
-    require_once "config.php";
-    
-    // Prepare a select statement
-    $sql = "SELECT * FROM product WHERE _id = ?";
-    
-    if($stmt = mysqli_prepare($link, $sql)){
-        // Bind variables to the prepared statement as parameters
-        mysqli_stmt_bind_param($stmt, "i", $_GET["_id"]);
-        
-        // Attempt to execute the prepared statement
-        if(mysqli_stmt_execute($stmt)){
-            $result = mysqli_stmt_get_result($stmt);
-    
-            if(mysqli_num_rows($result) == 1){
-                /* Fetch result row as an associative array. Since the result set
-                contains only one row, we don't need to use while loop */
-                $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-                
-                // Retrieve individual field value
-                $prodName = $row['prodName'];
-                $prodBrand = $row['prodBrand'];
-                $prodDescription = $row['prodDescription'];
-                $prodProvider = $row['prodProvider'];
-                $authorName = $row['authorName'];
-                $prodAmount = $row['prodAmount'];
-                $prodUnit = $row['prodUnit'];
-                $prodPrice = $row['prodPrice'];
-                $prodResource = $row['prodResource'];
-            } else{
-                echo"<script language='javascript' type='text/javascript'>alert('URL doesn\'t contain valid id parameter. Redirect to error page');window.location.href='error.php'</script>";
-                exit();
-            }
-            
-        } else{
-            echo"<script language='javascript' type='text/javascript'>alert('Oops! Something went wrong. Please try again later.');window.location.href='index.php'</script>";
-        }
-    }
-     
-    // Close statement
-    mysqli_stmt_close($stmt);
-    
-    // Close connection
-    mysqli_close($link);
-} else{
-    echo"<script language='javascript' type='text/javascript'>alert('URL doesn\'t contain valid id parameter. Redirect to error page');window.location.href='error.php'</script>";
-    exit();
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>View Record</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <style type="text/css">
-        .wrapper{
-            width: 500px;
-            margin: 0 auto;
-        }
-    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="./static/img/comp.ico">
+
+    <title>Checkout GCOMP - View Record</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="./static/form-validation.css" rel="stylesheet">
 </head>
+
 <body>
     <div class="wrapper">
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="page-header">
-                        <h1>View Record</h1>
+                        <div class="container">
+                            <div class="row justify-content-between">
+                                <div class="col-4">
+                                    <h2 class="pull-left">Read Record</h2>
+                                </div>
+                                <div class="col-4">
+                                    <p><a href="index.php" class="btn btn-primary pull-right">Back</a></p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label>Product Name</label>
-                        <p class="form-control-static"><?php echo $row["prodName"]; ?></p>
-                    </div>
-                    <div class="form-group">
-                        <label>Product Brand</label>
-                        <p class="form-control-static"><?php echo $row["prodBrand"]; ?></p>
-                    </div>
-                    <div class="form-group">
-                        <label>Product Description</label>
-                        <p class="form-control-static"><?php echo $row["prodDescription"]; ?></p>
-                    </div>
-                    <div class="form-group">
-                        <label>Product Provider</label>
-                        <p class="form-control-static"><?php echo $row["prodProvider"]; ?></p>
-                    </div>
-                    <div class="form-group">
-                        <label>Author Name</label>
-                        <p class="form-control-static"><?php echo $row["authorName"]; ?></p>
-                    </div>
-                    <div class="form-group">
-                        <label>Amount</label>
-                        <p class="form-control-static"><?php echo $row["prodAmount"]; ?></p>
-                    </div>
-                    <div class="form-group">
-                        <label>Unit of Measurement</label>
-                        <p class="form-control-static"><?php echo $row["prodUnit"]; ?></p>
-                    </div>
-                    <div class="form-group">
-                        <label>Price</label>
-                        <p class="form-control-static"><?php echo $row["prodPrice"]; ?></p>
-                    </div>
-                    <div class="form-group">
-                        <label>Resource</label>
-                        <p class="form-control-static"><?php echo $row["prodResource"]; ?></p>
-                    </div>
-                    <p><a href="index.php" class="btn btn-primary">Back</a></p>
+                    <?php
+
+                    // Error handling
+                    ini_set('display_errors', 1);
+                    ini_set('display_startup_errors', 1);
+                    error_reporting(E_ALL);
+
+                    $_id = $_GET["_id"];
+
+                    // Check existence of id parameter before processing further
+                    if (isset($_GET["_id"]) && !empty(trim($_id))) {
+                        // Include config file
+                        require_once("config.php");
+
+                        // Prepare a select statement
+                        $sql = "SELECT * FROM PRODUCTS WHERE _id = $_id";
+
+                        $result = pg_query($link, $sql);
+
+                        if (pg_num_rows($result) == 1) {
+                            $row = pg_fetch_assoc($result);
+
+                            echo "<div class='form-group'><label><b>Product Name</b></label><p class='form-control-static'>" . $row['prodname'] . "</p></div>";
+                            echo "<div class='form-group'><label><b>Product Brand</b></label><p class='form-control-static'>" . $row['prodbrand'] . "</p></div>";
+                            echo "<div class='form-group'><label><b>Product Description</b></label><p class='form-control-static'>" . $row['proddescription'] . "</p></div>";
+                            echo "<div class='form-group'><label><b>Product Provider</b></label><p class='form-control-static'>" . $row['prodprovider'] . "</p></div>";
+                            echo "<div class='form-group'><label><b>Author Name</b></label><p class='form-control-static'>" . $row['authorname'] . "</p></div>";
+                            echo "<div class='form-group'><label><b>Amount</b></label><p class='form-control-static'>" . $row['prodamount'] . "</p></div>";
+                            echo "<div class='form-group'><label><b>Unit of Measurement</b></label><p class='form-control-static'>" . $row['produnit'] . "</p></div>";
+                            echo "<div class='form-group'><label><b>Price</b></label><p class='form-control-static'>" . $row['prodprice'] . "</p></div>";
+                            echo "<div class='form-group'><label><b>Resource</b></label><p class='form-control-static'>" . $row['prodresource'] . "</p></div>";
+                            echo "<div class='form-group'><label><b>Actions</b></label><p class='form-control-static'><a href='update.php?_id=". $row['_id'] ."' title='Edit Record' data-toggle='tooltip'>Edit</a></p><p class='form-control-static'><a href='delete.php?_id=". $row['_id'] ."' title='Delete Record' data-toggle='tooltip'>Delete</a></p></div>";
+                        } else {
+                            echo "<script language='javascript' type='text/javascript'>alert('URL doesn\'t contain valid id parameter. Redirect to error page');window.location.href='error.html'</script>";
+                            exit();
+                        }
+                    } else {
+                        echo "<script language='javascript' type='text/javascript'>alert('Oops! Something went wrong. Please try again later.');window.location.href='index.php'</script>";
+                    }
+
+                    // Close connection
+                    pg_close($link);
+
+                    ?>
                 </div>
-            </div>        
+            </div>
         </div>
     </div>
 </body>
+
 </html>
