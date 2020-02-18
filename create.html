@@ -1,30 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="./static/img/comp.ico">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="./static/img/comp.ico">
 
-    <title>Checkout GCOMP - Create Record</title>
+  <title>Checkout GCOMP - Create Record</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="./static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap core CSS -->
+  <link href="./static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="./static/form-validation.css" rel="stylesheet">
-  </head>
+  <!-- Custom styles for this template -->
+  <link href="./static/form-validation.css" rel="stylesheet">
+</head>
+
 <body>
-    <div class="wrapper">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="page-header">
-                        <h2>Create Record</h2>
-                    </div>
-                    <p>Please fill this form and submit to add product record to the database.</p>
-                    <form class="needs-validation" novalidate action="create.php" method="POST">
+  <div class="wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="page-header">
+            <div class="container">
+              <div class="row justify-content-between">
+                <div class="col-4">
+                  <h2 class="pull-left">Create Record</h2>
+                </div>
+                <div class="col-4">
+                  <p><a href="index.php" class="btn btn-primary pull-right">Back</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <form class="needs-validation" novalidate action="create.php" method="POST">
 
             <div class="mb-3">
               <label for="prodname">Product Name</label>
@@ -36,7 +46,7 @@
 
             <div class="mb-3">
               <label for="prodbrand">Product Brand</label>
-              <input  type="text" class="form-control" id="prodbrand" name="prodbrand" placeholder="" required>
+              <input type="text" class="form-control" id="prodbrand" name="prodbrand" placeholder="" required>
               <div class="invalid-feedback">
                 Who made the product.
               </div>
@@ -44,7 +54,8 @@
 
             <div class="mb-3">
               <label for="proddescription">Product Description</label>
-              <textarea  type="text" class="form-control" id="proddescription" name="proddescription" placeholder="" required></textarea>
+              <textarea type="text" class="form-control" id="proddescription" name="proddescription" placeholder=""
+                required></textarea>
               <div class="invalid-feedback">
                 Explain what you need, with especifications and things like that.
               </div>
@@ -52,7 +63,7 @@
 
             <div class="mb-3">
               <label for="prodprovider">Product Provider</label>
-              <input  type="text" class="form-control" id="prodprovider" name="prodprovider" placeholder="" required>
+              <input type="text" class="form-control" id="prodprovider" name="prodprovider" placeholder="" required>
               <div class="invalid-feedback">
                 Where buy the product.
               </div>
@@ -101,34 +112,37 @@
             <hr class="mb-4">
 
             <button class="btn btn-primary btn-lg btn-block" type="submit">Send to checkout</button>
-            <p><a href="index.php" class="btn btn-primary">Back</a></p>
 
           </form>
-                </div>
-            </div>        
         </div>
+      </div>
     </div>
-    <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p class="mb-1" id="copyright"></p>
-      </footer>
-    </div>
+  </div>
+  <footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1" id="copyright"></p>
+  </footer>
+  </div>
 
-    <!-- Bootstrap core JavaScript
+  <!-- Bootstrap core JavaScript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="./static/jquery/jquery-slim.min.js"><\/script>')</script>
-    <script src="./static/popper.min.js"></script>
-    <script src="./static/js/bootstrap.min.js"></script>
-    <script src="./static/holder.min.js"></script>
-    <script src="./static/form-validator.js"></script>
-    <script>
-      let today = new Date();
-      let y = today.getFullYear();
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+  </script>
+  <script>
+    window.jQuery || document.write('<script src="./static/jquery/jquery-slim.min.js"><\/script>')
+  </script>
+  <script src="./static/popper.min.js"></script>
+  <script src="./static/js/bootstrap.min.js"></script>
+  <script src="./static/holder.min.js"></script>
+  <script src="./static/form-validator.js"></script>
+  <script>
+    let today = new Date();
+    let y = today.getFullYear();
 
-      today = '&copy; GCOMP / LAPOL / UFRGS ' + y;
-      document.getElementById("copyright").innerHTML = today;
-
-    </script>
+    today = '&copy; GCOMP / LAPOL / UFRGS ' + y;
+    document.getElementById("copyright").innerHTML = today;
+  </script>
 </body>
+
 </html>
