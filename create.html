@@ -34,11 +34,11 @@
               </div>
             </div>
           </div>
-          <form class="needs-validation" novalidate action="create.php" method="POST">
+          <form class="needs-validation" novalidate action="create.php" method="POST" enctype="multipart/form-data">
 
             <div class="mb-3">
               <label for="prodname">Product Name</label>
-              <input type="text" class="form-control" id="prodname" name="prodname" placeholder="" required>
+              <input type="text" class="form-control" id="prodname" name="prodname" value="teste image" required>
               <div class="invalid-feedback">
                 Please, enter the name of what you need.
               </div>
@@ -46,7 +46,7 @@
 
             <div class="mb-3">
               <label for="prodbrand">Product Brand</label>
-              <input type="text" class="form-control" id="prodbrand" name="prodbrand" placeholder="" required>
+              <input type="text" class="form-control" id="prodbrand" name="prodbrand" value="teste image" required>
               <div class="invalid-feedback">
                 Who made the product.
               </div>
@@ -54,8 +54,8 @@
 
             <div class="mb-3">
               <label for="proddescription">Product Description</label>
-              <textarea type="text" class="form-control" id="proddescription" name="proddescription" placeholder=""
-                required></textarea>
+              <textarea type="text" class="form-control" id="proddescription" name="proddescription"
+                required>teste image</textarea>
               <div class="invalid-feedback">
                 Explain what you need, with especifications and things like that.
               </div>
@@ -63,7 +63,7 @@
 
             <div class="mb-3">
               <label for="prodprovider">Product Provider</label>
-              <input type="text" class="form-control" id="prodprovider" name="prodprovider" placeholder="" required>
+              <input type="text" class="form-control" id="prodprovider" name="prodprovider" value="teste image" required>
               <div class="invalid-feedback">
                 Where buy the product.
               </div>
@@ -71,7 +71,7 @@
 
             <div class="mb-3">
               <label for="authorname">Author Name</label>
-              <input type="text" class="form-control" id="authorname" name="authorname" placeholder="" required>
+              <input type="text" class="form-control" id="authorname" name="authorname" value="teste image" required>
               <div class="invalid-feedback">
                 Who want the product? This information is very usefull 'cause is for who the researcher gonna ask.
               </div>
@@ -79,7 +79,7 @@
 
             <div class="mb-3">
               <label for="prodamount">Amount</label>
-              <input type="number" class="form-control" id="prodamount" name="prodamount" placeholder="" required>
+              <input type="number" class="form-control" id="prodamount" name="prodamount" value="11" required>
               <div class="invalid-feedback">
                 How much or how many (I don't know).
               </div>
@@ -87,7 +87,7 @@
 
             <div class="mb-3">
               <label for="produnit">Unit of Measurement</label>
-              <input type="text" class="form-control" id="produnit" name="produnit" placeholder="" required>
+              <input type="text" class="form-control" id="produnit" name="produnit" value="teste image" required>
               <div class="invalid-feedback">
                 Liters or cubic centimeters or meters or packages.
               </div>
@@ -95,7 +95,7 @@
 
             <div class="mb-3">
               <label for="prodprice">Price</label>
-              <input type="number" step="0.01" class="form-control" id="prodprice" name="prodprice" placeholder="" required>
+              <input type="number" step="0.01" class="form-control" id="prodprice" name="prodprice" value="22" required>
               <div class="invalid-feedback">
                 Enter just the number with point, no comma.
               </div>
@@ -103,10 +103,15 @@
 
             <div class="mb-3">
               <label for="prodresource">Resource</label>
-              <input type="text" class="form-control" id="prodresource" name="prodresource" placeholder="" required>
+              <input type="text" class="form-control" id="prodresource" name="prodresource" value="teste image" required>
               <div class="invalid-feedback">
                 Who will pay for this.
               </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="prodimage">Product Image</label>
+              <input type="file" class="form-control-file" id="prodimage" name="prodimage">
             </div>
 
             <hr class="mb-4">

@@ -65,6 +65,9 @@
                             echo "<div class='form-group'><label><b>Unit of Measurement</b></label><p class='form-control-static'>" . $row['produnit'] . "</p></div>";
                             echo "<div class='form-group'><label><b>Price</b></label><p class='form-control-static'>" . $row['prodprice'] . "</p></div>";
                             echo "<div class='form-group'><label><b>Resource</b></label><p class='form-control-static'>" . $row['prodresource'] . "</p></div>";
+                            $image = $row['prodimage'];
+                            $image_src = "_tmp/".$image;
+                            echo "<div class='form-group'><label><b>Image </b></label><img src='$image_src' alt='image' ></div>";
                             echo "<div class='form-group'><label><b>Actions</b></label><p class='form-control-static'><a href='update.php?_id=". $row['_id'] ."' title='Edit Record' data-toggle='tooltip'>Edit</a></p><p class='form-control-static'><a href='delete.php?_id=". $row['_id'] ."' title='Delete Record' data-toggle='tooltip'>Delete</a></p></div>";
                         } else {
                             echo "<script language='javascript' type='text/javascript'>alert('URL doesn\'t contain valid id parameter. Redirect to error page');window.location.href='error.html'</script>";
