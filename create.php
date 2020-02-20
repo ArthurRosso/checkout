@@ -19,30 +19,22 @@ $produnit = $_POST['produnit'];
 $prodprice = $_POST['prodprice'];
 $prodresource = $_POST['prodresource'];
 
-$sql="";
-
 
 if (count($_FILES) > 0) {
-  if (is_uploaded_file($_FILES['prodimage']['name'])) {
+  if (is_uploaded_file($_FILES['prodimage']['tmp_name'])) {
     $name = $_FILES['prodimage']['name'];
     $target_dir = "_tmp/";
-    $target_file = $target_dir . basename($_FILES["prodimage"]["name"]);
+    $target_file = $target_dir . basename($_FILES["prodimage"]["tmp_name"]);
   
     // Select file type
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-  
-    // Valid file extensions
-    $extensions_arr = array("jpg","jpeg","png","gif");
-  
-    // Check extension
-    if( in_array($imageFileType,$extensions_arr) ){
    
        // Insert record
        $sql = "INSERT INTO PRODUCTS (prodname, prodbrand, proddescription, prodprovider, authorname, prodamount, produnit, prodprice, prodresource, prodimage) VALUES ('$prodname', '$prodbrand', '$proddescription', '$prodprovider', '$authorname', '$prodamount', '$produnit', '$prodprice', '$prodresource', '$name');";
     
        // Upload file
-       move_uploaded_file($_FILES['prodimage']['name'],$target_dir.$name);
-    }
+       move_uploaded_file($_FILES['prodimage']['tmp_name'],$target_dir.$name);
+    
 
   }
 }else {
