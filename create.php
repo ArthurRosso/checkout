@@ -53,3 +53,4 @@ if (pg_query($link, $sql)) {
 } else {
   echo"<script language='javascript' type='text/javascript'>alert('This product could not be registered.');window.location.href='index.php'</script>";
 }
+?>
